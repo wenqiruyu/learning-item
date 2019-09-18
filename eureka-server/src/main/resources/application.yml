@@ -15,6 +15,8 @@ eureka:
     hostname: peer1
     status-page-url: http://${spring.cloud.client.ipAddress}:${server.port}/swagger-ui.html
   client:
+    register-with-eureka: false
+    fetch-registry: false
     service-url:
       defaultZone: http://wen:qiyu@peer2:10001/eureka/,http://wen:qiyu@peer3:10002/eureka/
 ---
@@ -31,6 +33,8 @@ spring:
 # 将peer2注册到peer1，peer3
 eureka:
   client:
+    register-with-eureka: false
+    fetch-registry: false
     service-url:
       defaultZone: http://wen:qiyu@peer1:10000/eureka/,http://wen:qiyu@peer3:10002/eureka/
   instance:
@@ -49,6 +53,8 @@ spring:
 # 将peer3注册到peer1，peer2
 eureka:
   client:
+    register-with-eureka: false
+    fetch-registry: false
     service-url:
       defaultZone: http://wen:qiyu@peer1:10000/eureka/,http://wen:qiyu@peer2:10001/eureka/
   instance:
